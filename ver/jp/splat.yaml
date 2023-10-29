@@ -26,7 +26,6 @@ options:
   undefined_syms_auto_path: ver/jp/undefined_syms_auto.txt
   symbol_name_format: JP_$VRAM
   symbol_name_format_no_rom: JP_$VRAM_$SEG
-  ld_legacy_generation: True
 asset_stack:
   - jp
 segments:
@@ -298,7 +297,7 @@ segments:
     - [auto, c, os/osFlash]
     - [0x4AC70, pm_effect_loads, effect_loads]
     - [auto, c, battle/battle]
-    - [0x4E580, bin, n_aspMain_text]
+    - [0x4E580, textbin, n_aspMain_text]
     - [0x4F1E0]
     - [auto, .data, main_pre]
     - [auto, .data, main]
@@ -470,7 +469,7 @@ segments:
     - [auto, .rodata, inventory]
     - [auto, .rodata, world/partners]
     - [auto, .rodata, 891b0_len_fb0]
-    - [0xA5910, bin, A5910]
+    - [0xA5910, rodatabin, A5910]
     - [0xA5F90]
 
   - name: engine4

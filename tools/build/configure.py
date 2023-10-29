@@ -510,6 +510,7 @@ class Configure:
         import segtypes.common.group
         import segtypes.common.rodatabin
         import segtypes.common.textbin
+        import segtypes.common.databin
         import segtypes.n64.header
         import segtypes.n64.img
         import segtypes.n64.palette
@@ -647,7 +648,7 @@ class Configure:
                 build(entry.object_path, entry.src_paths, "as")
             elif isinstance(seg, segtypes.common.asm.CommonSegAsm) or (
                 isinstance(seg, segtypes.common.data.CommonSegData) and not seg.type[0] == "."
-            ):
+            ) or isinstance(seg, segtypes.common.textbin.CommonSegTextbin) or isinstance(seg, segtypes.common.rodatabin.CommonSegRodatabin) or isinstance(seg, segtypes.common.databin.CommonSegDatabin):
                 build(entry.object_path, entry.src_paths, "as")
             elif seg.type in ["pm_effect_loads", "pm_effect_shims"]:
                 build(entry.object_path, entry.src_paths, "as")
@@ -805,7 +806,7 @@ class Configure:
                                 "pal_inc_c",
                                 vars,
                             )
-            elif isinstance(seg, segtypes.common.bin.CommonSegBin) or isinstance(seg, segtypes.common.textbin.CommonSegTextbin) or isinstance(seg, segtypes.common.rodatabin.CommonSegRodatabin):
+            elif isinstance(seg, segtypes.common.bin.CommonSegBin):
                 build(entry.object_path, entry.src_paths, "bin")
             elif isinstance(seg, segtypes.n64.yay0.N64SegYay0):
                 compressed_path = entry.object_path.with_suffix("")  # remove .o

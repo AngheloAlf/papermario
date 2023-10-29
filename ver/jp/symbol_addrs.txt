@@ -323,3 +323,4 @@ evt_get_variable = 0x802C7ABC;
 heap_generalHead = 0x802FB800;
 heap_battleHead = 0x803DA800;
 obfuscated_obfuscation_shims_ROM_START = 0xF79E611F;
+n_aspMain_text_bin = 0x80073180;
